@@ -1,16 +1,9 @@
-##### THIS ALLOWS US TO DEPLOY THE SITE FROM A GIT REPO ######
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/xams/public_html/
-    - /bin/cp -R fonts $DEPLOYPATH
-    - /bin/cp -R libs $DEPLOYPATH
-    - /bin/cp -R css $DEPLOYPATH
-    - /bin/cp -R fonts $DEPLOYPATH
-    - /bin/cp -R img $DEPLOYPATH
-    - /bin/cp -R js $DEPLOYPATH
-    - /bin/cp index.html $DEPLOYPATH
-    - /bin/cp index.css $DEPLOYPATH
-    - /bin/cp index.js $DEPLOYPATH
-    - /bin/cp films.css $DEPLOYPATH
-    - /bin/cp films.html $DEPLOYPATH
+    - export DEPLOYPATH=/home/xams/public_html # Update with your cPanel account username
+    - /usr/local/cpanel/3rdparty/bin/git pull origin main
+    - /usr/local/cpanel/3rdparty/bin/git checkout main
+    - /usr/local/cpanel/3rdparty/bin/git pull origin main
+    - /bin/cp -r * $DEPLOYPATH
+    - /usr/local/cpanel/3rdparty/bin/git checkout --
